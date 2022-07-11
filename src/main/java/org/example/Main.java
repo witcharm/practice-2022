@@ -1,13 +1,11 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class Main {
     public static Integer NOD(Integer a, Integer b) {
         while (b !=0) {
-            Integer tmp = a % b;
+            int tmp = a % b;
             a = b;
             b = tmp;
         }
@@ -22,17 +20,17 @@ public class Main {
         }
     }
     public static String calculate(String num1, String operation, String num2) {
-        Integer chis = 0, znam = 0, num = 0;
-        String[] first_numb = new String[2];
-        String[] second_numb = new String[2];
-        ArrayList<Fraction> nums = new ArrayList<Fraction>();
-        if(num1.indexOf("/")==-1)
+        int chis = 0, znam = 0, num;
+        String[] first_numb;
+        String[] second_numb;
+        ArrayList<Fraction> nums = new ArrayList<>();
+        if(!num1.contains("/"))
             nums.add(new Fraction(Integer.valueOf(num1),1));
         else{
             first_numb = num1.split("/");
             nums.add(new Fraction(Integer.valueOf(first_numb[0]),Integer.valueOf(first_numb[1])));
         }
-        if(num2.indexOf("/")==-1)
+        if(!num2.contains("/"))
             nums.add(new Fraction(Integer.valueOf(num2),1));
         else{
             second_numb = num2.split("/");
@@ -65,7 +63,7 @@ public class Main {
             if (znam / num == 1)
                 return String.valueOf(chis / num);
             else
-                return String.valueOf(chis / num) + "/" + String.valueOf(znam / num);
+                return chis / num + "/" + znam / num;
         }
         else{
             return null;
